@@ -16,5 +16,5 @@ function Cardcard({car,index}) {
     </div>
   )
 }
-// <img src={carPictureUrl} class="h-full object-fill mask mask-squircle"/>
+
 export default Cardcard
