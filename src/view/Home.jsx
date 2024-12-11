@@ -1,39 +1,56 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Cardcard from '../components/Cardcard'
+import { Link } from 'react-router-dom'
+
+
+///
+import add from '../assets/add.png'
+import Carcard from '../components/Carcard'
+
 function Home() {
-    const [cardata, setcardata] = useState([])
-    const lodecar = async () => {
 
-        try {
-            const response = await axios.get('http://localhost:3000/cars')
-            setcardata(response.data.data)
-        }
-        catch (error) {
-            console.error('error', error)
-        }
+  const [cars, setcars] = useState([])
+  const lodescars = async () => {
 
-    }
+   try{ const response = await axios.get('http://localhost:3000/cars')
 
-    console.log(cardata)
-    useEffect(() => {
-        lodecar()
-    }, [])
-    return (
-        <div className=' h-full w-full flex flex-wrap gap-4 p-2 justify-evenly' >
-            {
-                cardata.map((car, index) => {
-                    return (
-                        <div className=' '>
-                      <Cardcard car={car} index={index}/>
+    setcars(response.data.data)
+   }
+   catch(error){
+       console.error(error)
+       
+   }
+   
 
-                        </div>
 
-                    )
-                })
-            }
-        </div>
-    )
+  }
+
+  useEffect(() => {
+    lodescars()
+  }, [])
+
+  console.log(cars);
+  return (
+    
+    <>
+      <h1 className=' font-bold text-center text-4xl'>Your cars </h1>
+    <div className='reletive h-full w-full flex gap-3 p-2'>
+    
+      {
+        cars.map((car)=>{
+          return(
+          <>
+           <Carcard car={car}/>
+          </>
+          )
+        }) 
+      }
+      <Link to= '/add'>
+      <img src={add} className='h-12 absolute bottom-10 right-16 cursor-pointer' />
+      </Link>
+    </div>
+    </>
+  )
 }
 
 export default Home
