@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import Car from '../assets/car.png';
 import axios from 'axios';
 import { toast, Toaster } from 'react-hot-toast';
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function Add() {
     const [car, setcars] = useState({
@@ -25,7 +26,7 @@ function Add() {
             }
 
             // Send a POST request to add the car
-            const response = await axios.post('http://localhost:3000/addcar', {
+            const response = await axios.post(`${apiUrl}/addcar`, {
                 carId: car.carId,
                 carName: car.carName,
                 price: car.price,
