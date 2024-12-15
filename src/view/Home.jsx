@@ -36,7 +36,7 @@ function Home() {
   return (
     <>
       <h1 className='font-bold text-center text-4xl'>Your Cars</h1>
-      <div className='relative h-full w-full flex gap-3 p-2'>
+      <div className='relative h-full w-full flex gap-3 p-2 bg-slate-500'>
         {
           cars.length === 0 ? (
             <p>No cars available</p>  // If no cars, display a message
@@ -47,7 +47,7 @@ function Home() {
           )
         }
         <Link to="/add">
-          <img src={add} className='h-12 absolute bottom-10 right-16 cursor-pointer' />
+          <img src={add} className='h-12 absolute bottom-0 right-2 cursor-pointer' />
         </Link>
       </div>
     </>

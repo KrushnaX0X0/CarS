@@ -45,18 +45,18 @@ function Add() {
                 carPictureUrl: ''
             });
 
-            // Show a success toast with the response message from the server
+        
             toast.success(response.data.message);
         } catch (error) {
-            // Handle any error that occurred during the request
+            
             if (error.response) {
-                // If the server responded with an error (e.g., 400 or 500)
+                
                 toast.error(error.response.data.message || 'Something went wrong on the server!');
             } else if (error.request) {
-                // If no response was received (e.g., network error)
+                
                 toast.error('No response from the server. Please try again later!');
             } else {
-                // Any other error (e.g., setting up the request)
+                
                 toast.error('An error occurred while setting up the request!');
             }
 
