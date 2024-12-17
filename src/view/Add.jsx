@@ -65,7 +65,7 @@ function Add() {
     }
 
     return (
-        <div className='mt-24'>
+        <div className='mt-24 x'>
             <div className=''>
                 <img src={Car} alt="" className='h-20 block m-auto' />
             </div>
@@ -77,9 +77,9 @@ function Add() {
                     <Inpute text='text' placeholder='Enter Your Owner Name' value={car.ownerName} setvalue={(val) => { setcars({ ...car, ownerName: val }) }} />
                     <Inpute text='text' placeholder='Enter Your Price' value={car.price} setvalue={(val) => { setcars({ ...car, price: val }) }} />
                     <Inpute text='text' placeholder='Enter Your useTime' value={car.useTime} setvalue={(val) => { setcars({ ...car, useTime: val }) }} />
-                    <span className='mt-3'>
+                    <div className='mt-3 '>
                         <Button title='Add Car' onclick={addCar} />
-                    </span>
+                    </div>
                 </div>
             </div>
             <Toaster />
